@@ -1,0 +1,32 @@
+#Practica 1 
+#Jose Domingo Padron Hernandez
+def parentesis(X):
+  balance = 0 #Empezamos con un valo inicial en 0
+  for char in X:
+    if char =='(': #Si el caracter es igual a (
+        balance += 1 #Asignarle el valor de 1 
+    elif char == ')': #Si el caracter es igual a )
+        balance -= 1 #valor -1 
+
+        #si nuestro valor es negativo hay parentesis que no estan cerrados 
+        if balance < 0: 
+          print(f"Error: Hay mas parentesis cerrando que abriendo {X}")
+          return False 
+
+  #Si nuestro balance no es 0 entonces nos arroja error 
+  if balance != 0:
+    print (f"Error: Hay un parentesis mal formado: {X}")
+    return False 
+
+  #Esto indicaria que se termino el proceso y todos los ( estan bien fotmados)
+  return True
+
+# ejemplitos 
+i1 = parentesis("(() ())") #True
+i2 = parentesis("(()")     #False 
+i3 = parentesis("())(")    #False
+
+print("Primera Prueba",i1)
+print("Segunda Prueba",i2)
+print("Tercera Prueba",i3)
+
